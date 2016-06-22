@@ -1,5 +1,3 @@
-map! <C-S> nil
-
 " make default not compatible with vi
 set nocompatible
 " set backspace=indent,eol,start
