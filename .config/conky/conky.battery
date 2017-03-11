@@ -1,0 +1,63 @@
+conky.config = {
+    alignment = 'bottom_right',
+    background = true,
+    border_width = 0,
+    cpu_avg_samples = 2,
+    default_color = 'white',
+    default_outline_color = 'white',
+    default_shade_color = 'white',
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    use_xft = true,
+    font = 'Inconsolata:size=14',
+    gap_x = 15,
+    gap_y = 5,
+    minimum_height = 5,
+    minimum_width = 350,
+    maximum_width = 351,
+    net_avg_samples = 2,
+    double_buffer = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_type = 'override',
+    own_window_transparent = true,
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = false,
+    use_spacer = 'none',
+    show_graph_scale = false,
+    show_graph_range = false,
+    override_utf8_locale = true
+}
+
+conky.text = [[
+${font FontAwesome:size=16}${color red}${exec ~/bin/novolume}\
+${font FontAwesome:size=16}${color green}${exec ~/bin/volume}$font\
+${color f9f999}${font Inconsolata:size=14}${execpi 1 pamixer --get-volume}\
+$if_mpd_playing: ${font Inconsolata:size=12}${color ff9922}${scroll 34 1 $mpd_album $mpd_artist $mpd_title}${font Inconsolata:size=6}$endif${font Inconsolata:size=6}
+$color$hr
+${font Anonymous Pro:size=8}${battery_percent}${if_match ${fs_free_perc /}<=10}${color dc322f}\
+${else}${if_match ${fs_free_perc /}<=20}${color cb4b16}\
+${else}${if_match ${fs_free_perc /}<=40}${color b58900}\
+${else}${color green}${endif} ${endif}${endif}\
+${alignr 1}${font FontAwesome:size=16} $font$color${fs_free /}\
+${if_match ${fs_free_perc /home}<=10}${color dc322f}\
+${else}${if_match ${fs_free_perc /home}<=20}${color cb4b16}\
+${else}${if_match ${fs_free_perc /home}<=40}${color b58900}\
+${else}${color green}${endif} ${endif}${endif}\
+  ${font FontAwesome:size=16} $font$color${fs_free /home}${font Anonymous Pro:size=1}
+${if_existing /sys/class/power_supply/AC/online 1}\
+${color orange}${font FontAwesome:size=18}$font ${color green}${battery_bar 4}${endif}\
+${if_existing /sys/class/power_supply/AC/online 0}\
+${if_match ${battery_percent} >= 90}${color green}${font FontAwesome:size=18}$font $color${battery_bar 4}${endif}\
+${if_match ${battery_percent} <= 89}${if_match ${battery_percent} >= 60}${color yellow}${font FontAwesome:size=18}$font $color${battery_bar 4}${endif}${endif}\
+${if_match ${battery_percent} <= 59}${if_match ${battery_percent} >= 40}${color orange}${font FontAwesome:size=18}$font $color${battery_bar 4}${endif}${endif}\
+${if_match ${battery_percent} <= 39}${if_match ${battery_percent} >= 20}${color red}${font FontAwesome:size=18}$font $color${battery_bar 4}${endif}${endif}\
+${if_match ${battery_percent} <= 19}${color black}${font FontAwesome:size=18}${color red}$font $color${battery_bar 4}${endif}${endif}
+# ${exec notify-send --urgency=normal "battery low"}${endif}${endif}
+]]
