@@ -1,0 +1,41 @@
+conky.config = {
+    alignment = 'top_middle',
+    background = true,
+    border_width = 1,
+    cpu_avg_samples = 2,
+    default_color = 'f9f999',
+    default_outline_color = 'blue',
+    default_shade_color = 'blue',
+    draw_borders = false,
+    draw_graph_borders = false,
+    draw_outline = false,
+    draw_shades = false,
+    use_xft = true,
+    font = 'Anonymous Pro:size=12',
+    gap_x = 00,
+    gap_y = 100,
+    minimum_height = 5,
+    minimum_width = 600,
+    net_avg_samples = 2,
+    double_buffer = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_type = 'override',
+    own_window_transparent = true,
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = false,
+    use_spacer = 'none',
+    show_graph_scale = true,
+    show_graph_range = false,
+    override_utf8_locale = true
+}
+
+conky.text = [[
+#$alignc${color da70d6}${font 01 DigitGraphics:size=130}${time %I}:${time %M}${color dda0dd}${font Anonymous Pro:size=24}${time %S}${font Anonymous Pro:size=10}
+$alignc${color yellow}${font 01 DigitGraphics:size=130}${time %I}:${time %M}${color light yellow}${font Anonymous Pro:size=24}${time %S}"${font Anonymous Pro:size=10}
+#$alignc${color red}${font 01 DigitGraphics:size=100}Don't waste time
+]]
