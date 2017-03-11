@@ -1,0 +1,53 @@
+conky.config = {
+    alignment = 'bottom_right',
+    background = true,
+    border_width = 0,
+    cpu_avg_samples = 2,
+    default_color = 'white',
+    default_outline_color = 'white',
+    default_shade_color = 'white',
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    use_xft = true,
+    font = 'Inconsolata:size=16',
+    gap_x = 15,
+    gap_y = 76,
+    minimum_height = 5,
+    minimum_width = 350,
+    maximum_width = 351,
+    net_avg_samples = 2,
+    double_buffer = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_type = 'override',
+    own_window_transparent = true,
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = false,
+    use_spacer = 'none',
+    show_graph_scale = false,
+    show_graph_range = false,
+    override_utf8_locale = true,
+    if_up_strictness = address,
+}
+
+conky.text = [[
+#${font  Anonymous Pro:size=3}$hr
+#$hr${font  Anonymous Pro:size=8}
+# ${font Gill Sans MT Pro UltraBold:size=14}${color #ffff00}            Valsad Weather${font  Anonymous Pro:size=8}
+#$color$hr
+#${color f9f999}${font Comic Sans MS:size=12}Current: ${color ffffff}${execi 600 ~/bin/weather.sh}${color orange}${font ConkySymbols:size=18}h$font
+#$color${font Anonymous Pro:size=14}${execi 600 ~/bin/wttr}
+#$color$hr
+#${color f9f999}${font Inconsolata:size=16}${color orange} ${execi 60 ls ~/Mail/new | wc -l}$color new mail(s)
+$color${font Anonymous Pro:size=3}$hr
+$color$hr${font Anonymous Pro:size=8}
+${color red}${font FontAwesome:size=14}${color f9f999}${font Inconsolata:size=14} GMAIL:  $color${execi 120 ~/bin/gmail}${font Anonymous Pro:size=1}
+${font Anonymous Pro:size=11}$color$hr
+${if_up wlan0}${color green}${font ConkySymbols:size=14}g${font Inconsolata:size=14}${color} $wireless_essid: ${addr wlan0} ${endif}${if_up ppp0}${color green}${font FontAwesome:size=16}${font Inconsolata:size=14}${color}:${addr ppp0}${endif}${font Comic Sans MS:size=5}
+$hr]]
