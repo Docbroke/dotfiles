@@ -1,0 +1,41 @@
+
+
+conky.config = {
+    alignment = 'bottom_middle',
+    background = true,
+    border_width = 1,
+    cpu_avg_samples = 2,
+    default_color = 'white',
+    default_outline_color = 'white',
+    default_shade_color = 'white',
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    use_xft = true,
+    font = 'Anonymous Pro:size=18', 
+    gap_x = 15,
+    gap_y = 20,
+    minimum_height = 5,
+    minimum_width = 5,
+    net_avg_samples = 2,
+    double_buffer = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_type = 'override',
+    own_window_transparent = true,
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = false,
+    use_spacer = 'none',
+    show_graph_scale = true,
+    show_graph_range = false
+}
+
+conky.text = [[
+#${font Noto Sans MONO CJK JP Bold:size=18}${execpi 60 ~/bin/conky-cal}
+${font Inconsolata:size=22}${execpi 60 ~/bin/conky-cal}
+]]
