@@ -1,0 +1,63 @@
+-- font = 'DejaVu Sans Mono:size=18', ${font URW Gothic L:size=13}
+-- ${color #11ff11}
+-- ${color2}${scroll 258 5 ${execi 900 python ~/bin/bbc.py }
+-- $nodename - $sysname $kernel
+-- ${color 999933} ${exec cat /tmp/nifty3.txt} ${color #11ff11}${execpi 5 cat /tmp/nifty1.txt} ${color 999933}${execpi 5 cat /tmp/nifty2.txt}
+-- ${color 444444} ${execpi 30 cat /tmp/nifty-pre.txt}
+-- ${color #119911}${font Anonymous Pro:size=11} ${execi 600 ~/bin/weather.sh}
+-- ${color 999933} ${execpi 300 python ~/bin/gmail.py}${image ~/bin/gmail.png -p 58,427}
+-- ${font Anonymous Pro:size=16}${execpi 60 ~/bin/conky-cal}
+
+
+conky.config = {
+    alignment = 'bottom_left',
+    background = true,
+    border_width = 1,
+    cpu_avg_samples = 2,
+    default_color = 'white',
+    default_outline_color = 'white',
+    default_shade_color = 'white',
+    draw_borders = false,
+    draw_graph_borders = false,
+    draw_outline = false,
+    draw_shades = false,
+    use_xft = true,
+    font = 'Inconsolata:size=16',
+    format_human_readable = true,
+    gap_x = 10,
+    gap_y = 10,
+    minimum_height = 5,
+    minimum_width = 25,
+    net_avg_samples = 2,
+    double_buffer = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_type = 'override',
+    own_window_transparent = true,
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = false,
+    use_spacer = 'none',
+    show_graph_scale = true,
+    show_graph_range = false,
+    override_utf8_locale = true
+}
+
+conky.text = [[
+${color green}${font ConkySymbols:size=24}j$font$color ${membar 4}
+#${font Gill Sans MT Pro UltraBold:size=12}${color yellow}  Name            		 CPU%  MEM%
+$font${color f9f999}${top_mem name 1}${color lightgrey}${top_mem cpu 1}  ${color ff9922}${top_mem mem_res 1}
+${color f9f999}${top_mem name 2}${color lightgrey}${top_mem cpu 2}  ${top_mem mem_res 2}
+${color f9f999}${top_mem name 3}${color lightgrey}${top_mem cpu 3}  ${top_mem mem_res 3}
+${color f9f999}${top name 1}${color lightgrey}${color ff9922}${top cpu 1}  ${color lightgrey}${top mem_res 1}
+${color green}${font ConkySymbols:size=24}F$font$color ${cpubar 4}${font Anonymous Pro:size=8}
+#${color f9f999}${font Comic Sans MS:size=14}${color orange} ${execi 60 ls ~/Mail/new | wc -l}$color new mail(s)
+#$alignc${color f9f999}${font Comic Sans MS:size=14}GMAIL:  $color${execi 120 ~/bin/gmail}
+#${font Anonymous Pro:size=11}$color$hr
+#$alignc${if_up wlan0}${color green}${font ConkySymbols:size=16}g${font Comic Sans MS:size=13}${color} $wireless_essid: ${addr wlan0} ${wireless_link_qual_perc wlan0}%${endif}${if_up ppp0}${color green}${font FontAwesome:size=16}${font Comic Sans MS:size=13}${color}:  ${addr ppp0}${endif}${font Comic Sans MS:size=5}
+#$color${font Anonymous Pro:size=3}$hr
+#$hr
+]]
