@@ -1,0 +1,250 @@
+####################
+#### CWM CONFIG ####
+####################
+
+bind-key 4-Insert /home/sharad/.config/autostart.sh
+
+# remove all default keybindings
+unbind-key all
+unbind-mouse all
+
+# keep space for conky-bar at the bottom
+gap 0 25 0 0
+
+fontname 'Liberation Sans:pixelsize=22:bold'
+
+##########################
+### KEYBOARD SHORTCUTS ###
+##########################
+
+# Modifier keys, C= control, M= Meta/alt, S= shift, 4= Mod4 (win key), 5 = AltGr
+
+# Lauch Applications
+bind-key 4-Return 'lxterminal'
+#bind-key 4-f 'lxterminal --geometry=1366x768 -x vifm /home/sharad'
+#bind-key 4-f 'terminator -x /home/sharad/bin/vifmrun /home/sharad /mnt/sda6/sharad'
+#bind-key 4-f 'terminator --geometry=950x950 -x /home/sharad/bin/f /mnt/sda6/sharad'
+#bind-key 4-f 'lxterminal -e /home/sharad/bin/f /mnt/sda6/sharad'
+#bind-key 4-f 'lxterminal -c 148 -e clifm /home/sharad'
+bind-key 4-f 'lxterminal -e clifm /home/sharad'
+bind-key 4S-f 'lxterminal -e doas clifm /home/sharad'
+
+#bind-key 4-g 'ibus engine m17n:gu:phonetic'
+#bind-key 4-e 'ibus engine xkb:us::eng'
+bind-key 4-g 'setxkbmap in guj-kagapa'
+bind-key 4-h 'setxkbmap in hin-kagapa'
+#bind-key 4-e 'setxkbmap us'
+#bind-key 4-Escape 'setxkbmap us'
+bind-key 4-Escape 'setxkbmap in eng'
+bind-key M-g 'sxiv /home/sharad/Softwares/Fonts/GUJARATI_setxkb/Guj_KaGaPa.jpg'
+#bind-key M-ગ 'sxiv /home/sharad/Softwares/Fonts/GUJARATI_setxkb/Guj_Phonetic_xkb.jpg'
+bind-key C-space 'dunstctl close-all'
+
+# kill applications
+bind-key 4-x xkill
+
+# weaver browser shorcut keys
+#bind-key CS-o 'w3search_weaver'
+# bind-key CS-l 'w3search_weaver_url'
+# bind-key CS-s 'w3search_weaver_source'
+# bind-key CS-x 'Weaver_geturl x'
+# bind-key M-x 'Weaver_geturl X'
+
+# Window
+bind-key F11 window-fullscreen
+bind-key 4-m window-maximize
+bind-key 4-equal window-hmaximize
+bind-key M-equal window-htile
+bind-key 4-backslash window-vmaximize
+bind-key M-backslash window-vtile
+bind-key 4-Up window-move-up-big
+# bind-key 4-Up window-snap-up
+bind-key 4-Down window-move-down-big
+# bind-key 4-Down window-snap-down
+bind-key 4-Right window-move-right-big
+# bind-key 4-Right window-snap-right
+bind-key 4-Left window-move-left-big
+# bind-key 4-Left window-snap-left
+bind-key M-Up window-resize-up-big
+bind-key M-Down window-resize-down-big
+bind-key M-Right window-resize-right-big
+bind-key M-Left window-resize-left-big
+bind-key M-Tab  window-cycle
+bind-key 4-Next group-cycle
+bind-key 4-Prior group-rcycle
+bind-key 4-q window-delete
+
+## MOUSE ##
+# 1 = left mouse button, 2= middle mouse, 3= right mouse, 4= scroll up, 5=scroll down
+
+bind-mouse 4-1 window-raise
+bind-mouse M-3 window-resize
+bind-mouse M-2 window-lower
+bind-mouse M-1 window-move
+
+# Pointer movement with keyboard
+bind-key C-Up pointer-move-up-big
+bind-key C-Down pointer-move-down-big
+bind-key C-Right pointer-move-right-big
+bind-key C-Left pointer-move-left-big
+
+####################################
+### Media Keys/ Special Functions###
+####################################
+
+## Fn key only
+# bind-key XF86WakeUp /home/sharad/bin/run
+# Power button
+bind-key XF86PowerOff 'lxterminal --geometry=50x14 -e /home/sharad/bin/power'
+# F1
+bind-key XF86AudioMute 'pamixer --toggle-mute'
+# F2
+bind-key XF86AudioRaiseVolume volumeup
+# F3
+bind-key XF86AudioLowerVolume volumedown
+# F4
+bind-key XF86AudioMicMute /home/sharad/bin/volumemicmute
+# F5
+bind-key XF86MonBrightnessDown 'backlight down'
+# F6
+bind-key XF86MonBrightnessUp 'backlight up'
+# F7
+bind-key XF86Display 'lxrandr'
+# F8 (airplane mode)
+bind-key XF86WLAN 'lxterminal -e nmtui'
+# F9
+bind-key XF86Messenger 'dunstctl history-pop'
+# F10
+# bind-key XF86Go 'to receive call'
+# F11
+# bind-key Cancel 'to reject call'
+# F12
+bind-key XF86Favorites '/home/sharad/bin/run'
+
+bind-key 4-t /home/sharad/bin/touchpad
+
+#########################################################
+### Window Groups (similar to workspaces, but better) ###
+#########################################################
+
+# show/hide all windows with win+0 key
+bind-key 4-0            group-toggle-all
+
+# show windows of group-n only, uses win+num(n) key
+bind-key 4-1            group-only-1
+bind-key 4-2            group-only-2
+bind-key 4-3            group-only-3
+bind-key 4-4            group-only-4
+bind-key 4-5            group-only-5
+bind-key 4-6            group-only-6
+bind-key 4-7            group-only-7
+bind-key 4-8            group-only-8
+bind-key 4-9            group-only-9
+
+# move window to group-n, uses win+function(n) key
+bind-key 4-F1           window-movetogroup-1
+bind-key 4-F2           window-movetogroup-2
+bind-key 4-F3           window-movetogroup-3
+bind-key 4-F4           window-movetogroup-4
+bind-key 4-F5           window-movetogroup-5
+bind-key 4-F6           window-movetogroup-6
+bind-key 4-F7           window-movetogroup-7
+bind-key 4-F8           window-movetogroup-8
+bind-key 4-F9           window-movetogroup-9
+
+## automatically add windows to a group
+# use "windowclass" or "windoname,windowclass" , find out with xprop
+autogrup 0 power_cwm,Lxterminal
+autogroup 1 Terminator
+autogroup 1 Lxterminal
+autogroup 1 Sakura
+autogroup 1 Tilda
+autogroup 2 Firefox
+autogroup 2 LibreWolf
+autogroup 2 firefox
+autogroup 2 Vimb
+autogroup 2 weaver
+autogroup 3 qpdfview
+autogroup 3 Zathura
+autogroup 3 Xreader
+autogroup 3 Xournal
+autogroup 3 Com.github.xournalpp.xournalpp
+autogroup 3 Com.github.johnfactotum.Foliate
+autogroup 3 libreoffice-writer
+autogroup 3 libreoffice-impress
+autogroup 3 libreoffice-calc
+autogroup 3 libreoffice-startcenter
+autogroup 4 TelegramDesktop
+autogroup 4 KotatogramDesktop
+autogroup 4 tg,Lxterminal
+autogroup 4 tg,lxterminal
+autogroup 4 Whatsapp
+autogroup 5 chromium
+autogroup 5 Firefox
+
+# Turn on sticky-group mode, so that windows launched in current group
+# stick to that group per default
+sticky yes
+
+###############
+## CWM Menus ##
+###############
+
+# search windows, win+/ key, start typing to search or ctrl+a to list all windows
+bind-key 4-slash menu-window
+# search applications with alt+/ key, only applications added in this config file
+#bind-key F12 menu-cmd
+bind-key S-F12 menu-exec #dmenu_run
+bind-key F12 /home/sharad/bin/run    #menu-exec #dmenu_run
+# search all applications with alt+shift+/ (alt+?)  key
+#bind-key M-question menu-exec
+# switch to alternative window manager
+#bind-key 4-w menu-exec-wm
+
+# WM to show in wm menu
+# wm openbox /usr/bin/openbox-session
+# wm kodi /usr/bin/kodi-standalone
+
+## COMMAND, apps to show in command menu
+command browser /home/sharad/bin/browse
+command fm_clifm 'lxterminal -e clifm'
+command fm_vifm 'lxterminal -e /home/sharad/bin/vifmrun'
+command passr 'lxterminal -e /home/sharad/bin/passr'
+command link /home/sharad/bin/link-handler
+command telegram /usr/bin/telegram-desktop
+#command telegram_doc '/usr/bin/telegram-desktop -many -workdir /home/sharad/.config/telegram2'
+command ssh_doc 'lxterminal -e "ssh sharad@docstore"'
+command ssh_pi 'lxterminal "ssh root@pi"'
+command term '/usr/bin/lxterminal'
+command slock /usr/bin/slock
+command menu 'lxterminal -e pmenu_run'
+command torrent 'lxterminal -e /home/sharad/bin/torrent'
+command vpn 'lxterminal -e vpn'
+command remind /home/sharad/bin/rem_notify
+command power 'lxterminal --geometry=60x15 -e power_cwm'
+command config_update 'killall -SIGHUP cwm'
+command config 'lxterminal -e vis /home/sharad/.config/cwm/cwmrc'
+command nifty 'lxterminal -e nifty'
+command kore 'lxterminal -e kore'
+#command tv 'lxterminal -c 170 -r 30 -x w3tv'
+#command radio 'lxterminal -c 170 -r 30 -x w3radio'
+command vnc 'vncviewer -Fullscreen -LowColorLevel 0 piserver'
+command vidcapture_stop 'killall ffmpeg'
+command vidcapture /home/sharad/bin/capturevid
+command vidcapturemic /home/sharad/bin/capturevidmic
+command bm_pyra 'firefox https://pyra-handheld.com/boards/'
+command bm_proton 'firefox https://mail.protonmail.com/login'
+command bm_news_db 'firefox http://www.divyabhaskar.co.in/'
+command bm_covid19 'firefox https://www.covid19india.org/'
+command bm_cricket 'firefox https://www.cricbuzz.com/'
+command bm_amazon 'firefox https://www.amazon.in/'
+command bm_flipkart 'firefox https://www.flipkart.com/'
+command bm_archreplies 'firefox https://bbs.archlinux.org/search.php?action=show_replies'
+command bm_news_bbc 'firefox https://www.bbc.com/hindi'
+
+########################
+## COLOR & APPEARANCE ##
+########################
+
+# color activeborder blue
+borderwidth 0
